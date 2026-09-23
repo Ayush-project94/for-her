@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Question</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            color: #222;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #22c55e;
+            color: white;
+        }
+
+        #no {
+            background: #ef4444;
+            color: white;
+            position: absolute;
+        }
+
+        #message {
+            display: none;
+            color: #22c55e;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1> Do you like me? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="yesClicked()">YES </button>
+        <button id="no">NO </button>
+    </div>
+
+    <div id="message">
+        I knew you would say yes.! ❤️😂
+    </div>
+
+</div>
+
+<script>
+
+const noButton = document.getElementById("no");
+
+function moveButton() {
+
+    const maxX = window.innerWidth - noButton.offsetWidth;
+    const maxY = window.innerHeight - noButton.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+}
+
+
+noButton.addEventListener("mouseover", moveButton);
+
+
+noButton.addEventListener("touchstart", moveButton);
+
+function yesClicked() {
+
+    document.querySelector(".buttons").style.display = "none";
+    document.querySelector("h1").style.display = "none";
+
+    document.getElementById("message").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
